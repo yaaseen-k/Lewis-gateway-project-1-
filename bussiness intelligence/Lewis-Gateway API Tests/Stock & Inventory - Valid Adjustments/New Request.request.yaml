@@ -1,0 +1,28 @@
+$kind: http-request
+name: New Request
+url: "{{Base URL}}/api/Orders"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"items\": [\r
+
+    \        {\"productId\": \"miren-table\",\r
+
+    \        \"quantity\": 1,\r
+
+    \        \"price\": 7699.00\r
+
+    \        }\r
+
+    \    ],\r
+
+    \    \"total\": 7699.00,\r
+
+    \    \"shippingAddress\": \"123 Main St, City, State 12345\"\r
+
+    \       \r
+
+    \ }"
+order: 4091807003575002

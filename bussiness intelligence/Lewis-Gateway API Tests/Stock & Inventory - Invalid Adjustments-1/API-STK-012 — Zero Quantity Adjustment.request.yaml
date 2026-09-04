@@ -1,0 +1,11 @@
+$kind: http-request
+name: API-STK-012 — Zero Quantity Adjustment
+url: "{{baseUrl}}/api/Products/{{productId}}/stock"
+method: PATCH
+body:
+  type: json
+  content: "{\r\n  \"stockQuantity\": 0\r\n}"
+auth:
+  type: noauth
+examples: .resources/API-STK-012 — Zero Quantity Adjustment.resources/examples
+order: 4340646721915922
