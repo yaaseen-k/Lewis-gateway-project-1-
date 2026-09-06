@@ -1,4 +1,0 @@
-$kind: http-request
-method: GET
-url: '{{base_url}}/api/Training/defect-reports'
-order: 5000

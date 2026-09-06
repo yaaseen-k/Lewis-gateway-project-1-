@@ -1,9 +1,0 @@
-$kind: http-request
-method: GET
-url: '{{base_url}}/api/Qa/audit'
-order: 3000
-queryParams:
-  - key: take
-    value: '100'
-  - key: eventType
-    value: ''

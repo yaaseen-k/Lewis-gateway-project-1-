@@ -1,7 +1,0 @@
-$kind: http-request
-method: GET
-url: '{{base_url}}/api/SupportCases'
-order: 1000
-queryParams:
-  - key: status
-    value: ''

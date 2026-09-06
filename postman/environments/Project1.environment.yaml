@@ -14,4 +14,6 @@ values:
     value: ''
   - key: Stock_Adjustment
     value: ''
+  - key: json_web_token_19sk
+    value: ''
 color: 0

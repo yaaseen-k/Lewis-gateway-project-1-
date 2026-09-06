@@ -3,10 +3,7 @@ describe('logging in to lewis project website', () => {
     beforeEach(() => {
 
         // Intercept the actual login API
-        cy.intercept(
-            'POST',
-            '**/api/Auth/login'
-        ).as('login');
+        cy.intercept('POST','**/api/Auth/login').as('login');
 
         // Open the website
         cy.visit('http://localhost:3000/profile');

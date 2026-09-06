@@ -1,0 +1,72 @@
+$kind: http-request
+url: "{{base_url}}/api/Pricing/validate"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"unitPrice\": 19.99,\r
+
+    \  \"quantity\": 7,\r
+
+    \  \"vatRate\": 0.15,\r
+
+    \  \"allowZeroValue\": false\r
+
+    }"
+scripts:
+  - type: afterResponse
+    code: "pm.test(\"Status code is 200\", function () {\r
+
+      \    pm.response.to.have.status(200);\r
+
+      });\r
+
+      \r
+
+      pm.test(\"Currency code is a valid 3-letter ISO code\", function () {\r
+
+      \    const jsonData = pm.response.json();\r
+
+      \    pm.expect(jsonData.currency).to.match(/^[A-Z]{3}$/);\r
+
+      });\r
+
+      \r
+
+      pm.test(\"Currency is ZAR as expected\", function () {\r
+
+      \    const jsonData = pm.response.json();\r
+
+      \    pm.expect(jsonData.currency).to.eql(\"ZAR\");\r
+
+      });\r
+
+      \r
+
+      pm.test(\"All monetary fields are rounded to 2 decimal places\", function () {\r
+
+      \    const jsonData = pm.response.json();\r
+
+      \    [\"subtotal\", \"vatAmount\", \"total\"].forEach(function (field) {\r
+
+      \        const decimals = (jsonData[field].toString().split(\".\")[1] || \"\").length;\r
+
+      \        pm.expect(decimals, `${field} = ${jsonData[field]} has more than 2 decimals`).to.be.at.most(2);\r
+
+      \    });\r
+
+      });\r
+
+      \r
+
+      pm.test(\"No floating point artifacts in total\", function () {\r
+
+      \    const jsonData = pm.response.json();\r
+
+      \    pm.expect(jsonData.total).to.eql(Math.round(jsonData.total * 100) / 100);\r
+
+      });"
+    language: text/javascript
+examples: .resources/API-PRC-006 - Currency Precision.resources/examples
+order: 4188353612839586

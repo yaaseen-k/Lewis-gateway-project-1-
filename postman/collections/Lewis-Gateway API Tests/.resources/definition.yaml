@@ -22,3 +22,6 @@ variables:
   - key: supabase_service_role_api_key_062r
     secret: true
     disabled: false
+  - key: json_web_token_19sk
+    secret: true
+    disabled: false

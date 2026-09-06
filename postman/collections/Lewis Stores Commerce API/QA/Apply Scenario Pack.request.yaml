@@ -1,7 +1,0 @@
-$kind: http-request
-method: POST
-url: '{{base_url}}/api/Qa/scenario-packs/{{scenario_pack_key}}/apply'
-order: 7000
-pathVariables:
-  - key: scenario_pack_key
-    value: 'happy_path_baseline'

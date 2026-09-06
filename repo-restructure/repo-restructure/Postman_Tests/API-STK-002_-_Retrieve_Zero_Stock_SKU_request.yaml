@@ -1,0 +1,51 @@
+$kind: http-request
+url: "{{base_url}}/api/Products/sku/{{zero_sku}}"
+method: GET
+scripts:
+  - type: afterResponse
+    code: "const response = pm.response.json();\r
+
+      \r
+
+      pm.test(\"Status code is 200\", () => {\r
+
+      \    pm.response.to.have.status(200);\r
+
+      });\r
+
+      \r
+
+      pm.test(\"Response time is below 2 seconds\", () => {\r
+
+      \    pm.expect(pm.response.responseTime).to.be.below(2000);\r
+
+      });\r
+
+      \r
+
+      pm.test(\"Returned SKU matches requested SKU\", () => {\r
+
+      \    pm.expect(response.sku).to.eql(pm.variables.get(\"zero_sku\"));\r
+
+      });\r
+
+      \r
+
+      pm.test(\"Stock quantity is zero\", () => {\r
+
+      \    pm.expect(response.stockQuantity).to.be.a(\"number\");\r
+
+      \    pm.expect(response.stockQuantity).to.be.at.least(5);\r
+
+      });\r
+
+      \r
+
+      pm.test(\"Product is active\", () => {\r
+
+      \    pm.expect(response.isActive).to.eql(true);\r
+
+      });"
+    language: text/javascript
+examples: .resources/API-STK-002 - Retrieve Zero Stock SKU.resources/examples
+order: 1532
