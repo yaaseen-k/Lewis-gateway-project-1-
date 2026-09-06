@@ -1,0 +1,6 @@
+$kind: http-request
+name: API-STK-004 - Retrieve Malformed SKU
+url: "{{base_url}}/api/Products/sku/{{malformed_sku}}"
+method: GET
+examples: .resources/API-STK-004 - Retrieve Malformed SKU.resources/examples
+order: 2118946503678114

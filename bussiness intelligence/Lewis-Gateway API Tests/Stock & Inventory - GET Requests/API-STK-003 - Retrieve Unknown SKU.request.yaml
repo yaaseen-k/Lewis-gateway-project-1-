@@ -1,0 +1,6 @@
+$kind: http-request
+name: API-STK-003 - Retrieve Unknown SKU
+url: "{{base_url}}/api/Products/sku/{{unknown_sku}}"
+method: GET
+examples: .resources/API-STK-003 - Retrieve Unknown SKU.resources/examples
+order: 528973138233061

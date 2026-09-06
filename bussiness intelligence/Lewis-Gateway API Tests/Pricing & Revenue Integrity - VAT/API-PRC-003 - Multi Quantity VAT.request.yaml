@@ -1,0 +1,50 @@
+$kind: http-request
+url: "{{base_url}}/api/Pricing/validate"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"unitPrice\": 5999.00,\r
+
+    \  \"quantity\": 5,\r
+
+    \  \"vatRate\": 15,\r
+
+    \  \"allowZeroValue\": false\r
+
+    }"
+scripts:
+  - type: afterResponse
+    code: "pm.test(\"Status code is 200\", function () {\r
+
+      \    pm.response.to.have.status(200);\r
+
+      });\r
+
+      \r
+
+      pm.test(\"VAT scales correctly with quantity\", function () {\r
+
+      \    const body = pm.response.text();\r
+
+      \    const subtotal = 29995.00;      // 5999 * 5\r
+
+      \    const expectedVat = 4499.25;    // 29995 * 15%\r
+
+      \    const expectedTotal = 34494.25; // 29995 + 4499.25\r
+
+      \    const numbers = (body.match(/-?\\d+(\\.\\d+)?/g) || []).map(Number);\r
+
+      \    const hasExpected = [subtotal, expectedVat, expectedTotal].some(function (val) {\r
+
+      \        return numbers.some(n => Math.abs(n - val) < 0.01);\r
+
+      \    });\r
+
+      \    pm.expect(hasExpected, `expected one of [${subtotal}, ${expectedVat}, ${expectedTotal}] in: ${body}`).to.be.true;\r
+
+      });"
+    language: text/javascript
+examples: .resources/API-PRC-003 - Multi Quantity VAT.resources/examples
+order: 1501938661696414

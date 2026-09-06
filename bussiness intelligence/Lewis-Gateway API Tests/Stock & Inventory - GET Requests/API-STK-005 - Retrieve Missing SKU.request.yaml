@@ -1,0 +1,6 @@
+$kind: http-request
+name: API-STK-005 - Retrieve Missing SKU
+url: "{{base_url}}/api/Products/sku/{{missing_sku}}"
+method: GET
+examples: .resources/API-STK-005 - Retrieve Missing SKU.resources/examples
+order: 2609246778129580

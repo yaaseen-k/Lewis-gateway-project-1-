@@ -1,0 +1,9 @@
+$kind: http-request
+name: API-STK-013 — Decimal Stock Quantity
+url: "{{baseUrl}}/api/Products/{{productId}}/stock"
+method: PATCH
+body:
+  type: json
+  content: "{\r\n  \"stockQuantity\": 4.5\r\n}"
+examples: .resources/API-STK-013 — Decimal Stock Quantity.resources/examples
+order: 4419835579226862
