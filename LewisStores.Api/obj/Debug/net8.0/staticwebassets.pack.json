@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "/mnt/c/Users/Anoona Sithole/Documents/27A/lewis/LewisGateway/Lewis-Web/Lewis-Stores/LewisStores.Api/wwwroot/swagger-ui/custom.css",
+      "PackagePath": "staticwebassets/swagger-ui/custom.css"
+    },
+    {
+      "Id": "/mnt/c/Users/Anoona Sithole/Documents/27A/lewis/LewisGateway/Lewis-Web/Lewis-Stores/LewisStores.Api/wwwroot/swagger-ui/custom.js",
+      "PackagePath": "staticwebassets/swagger-ui/custom.js"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.LewisStores.Api.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.LewisStores.Api.props",
+      "PackagePath": "build\\LewisStores.Api.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.LewisStores.Api.props",
+      "PackagePath": "buildMultiTargeting\\LewisStores.Api.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.LewisStores.Api.props",
+      "PackagePath": "buildTransitive\\LewisStores.Api.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

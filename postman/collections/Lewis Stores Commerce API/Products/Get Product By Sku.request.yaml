@@ -1,0 +1,5 @@
+$kind: http-request
+name: Get Product By Sku
+method: GET
+url: "{{base_url}}/api/Products/sku/{{sku}}"
+order: 5000

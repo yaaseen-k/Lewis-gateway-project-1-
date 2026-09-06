@@ -1,0 +1,26 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/api/Products/{{productId}}/stock"
+  method: PATCH
+  body:
+    type: json
+    content: "{\r
+
+      \  \"stockQuantity\": {{negativeResultQty}}\r
+
+      }"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    content-type: application/json; charset=utf-8
+    date: Mon, 17 Aug 2026 19:16:01 GMT
+    server: Kestrel
+    transfer-encoding: chunked
+  body:
+    type: json
+    content: |-
+      {
+        "message": "StockQuantity cannot be negative."
+      }
+order: 1786994173371

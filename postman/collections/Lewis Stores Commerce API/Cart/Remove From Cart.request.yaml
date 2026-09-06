@@ -1,0 +1,7 @@
+$kind: http-request
+method: DELETE
+url: '{{base_url}}/api/Cart/{{cart_item_id}}'
+order: 3000
+pathVariables:
+  - key: cart_item_id
+    value: '1'

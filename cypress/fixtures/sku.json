@@ -1,0 +1,22 @@
+{
+  "products": [
+    {
+      "sku": "SKU-001",
+      "name": "Sauce Labs Backpack",
+      "cartButton": "[data-test='add-to-cart-sauce-labs-backpack']",
+      "price": 29.99
+    },
+    {
+      "sku": "SKU-002",
+      "name": "Sauce Labs Bike Light",
+      "cartButton": "[data-test='add-to-cart-sauce-labs-bike-light']",
+      "price": 9.99
+    },
+    {
+      "sku": "SKU-003",
+      "name": "Sauce Labs Bolt T-Shirt",
+      "cartButton": "[data-test='add-to-cart-sauce-labs-bolt-t-shirt']",
+      "price": 15.99
+    }
+  ]
+}

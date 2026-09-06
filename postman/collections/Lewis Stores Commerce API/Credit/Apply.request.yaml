@@ -1,0 +1,16 @@
+$kind: http-request
+method: POST
+url: '{{base_url}}/api/Credit'
+order: 2000
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "fullName": "Test Customer",
+      "idNumber": "9001015009087",
+      "monthlyIncome": 25000,
+      "employmentStatus": "Employed"
+    }

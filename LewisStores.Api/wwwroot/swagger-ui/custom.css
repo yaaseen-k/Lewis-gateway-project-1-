@@ -1,0 +1,100 @@
+:root {
+  --ls-bg: #f6f7f3;
+  --ls-surface: #ffffff;
+  --ls-ink: #172125;
+  --ls-accent: #0f766e;
+  --ls-accent-2: #164e63;
+  --ls-border: #dde5e7;
+}
+
+.swagger-ui {
+  background: radial-gradient(circle at 8% 2%, #eef8f5 0%, var(--ls-bg) 45%, #ecf2f7 100%);
+  color: var(--ls-ink);
+  font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.swagger-ui .topbar {
+  background: linear-gradient(90deg, var(--ls-accent-2) 0%, var(--ls-accent) 100%);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.16);
+}
+
+.swagger-ui .topbar .download-url-wrapper {
+  display: none;
+}
+
+.swagger-ui .info {
+  margin: 22px 0 18px;
+  background: var(--ls-surface);
+  border: 1px solid var(--ls-border);
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(7, 35, 44, 0.1);
+}
+
+.swagger-ui .info .title {
+  font-size: 32px;
+  letter-spacing: -0.02em;
+  color: #0f2b33;
+  margin-bottom: 6px;
+}
+
+.swagger-ui .info .title small {
+  background: #e7f2f5;
+  color: #15566a;
+  border-radius: 999px;
+  border: 1px solid #c8dfe6;
+  padding: 2px 10px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.swagger-ui .info .base-url {
+  background: #f4fafb;
+  border: 1px solid #d5e8ed;
+  color: #184957;
+  border-radius: 8px;
+  padding: 8px 10px;
+  display: inline-block;
+  margin: 8px 0 14px;
+}
+
+.swagger-ui .info p,
+.swagger-ui .info li,
+.swagger-ui .info a {
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.swagger-ui .scheme-container {
+  background: var(--ls-surface);
+  border: 1px solid var(--ls-border);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(7, 35, 44, 0.08);
+}
+
+.swagger-ui .opblock {
+  border-radius: 10px;
+  border: 1px solid var(--ls-border);
+}
+
+.swagger-ui .opblock .opblock-summary {
+  border-radius: 10px;
+}
+
+.swagger-ui .btn.authorize {
+  border-color: var(--ls-accent);
+  color: var(--ls-accent);
+}
+
+.swagger-ui .btn.authorize svg {
+  fill: var(--ls-accent);
+}
+
+.swagger-ui .btn.execute {
+  background-color: var(--ls-accent);
+  border-color: var(--ls-accent);
+}
+
+.swagger-ui .btn.execute:hover {
+  background-color: #0d635d;
+}

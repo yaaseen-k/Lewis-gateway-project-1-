@@ -1,0 +1,16 @@
+$kind: http-request
+method: PATCH
+url: '{{base_url}}/api/Products/{{product_id}}/stock'
+order: 3000
+headers:
+  - key: Content-Type
+    value: application/json
+pathVariables:
+  - key: product_id
+    value: 'prod-example'
+body:
+  type: json
+  content: |-
+    {
+      "stockQuantity": 25
+    }

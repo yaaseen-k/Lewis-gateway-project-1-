@@ -1,0 +1,17 @@
+$kind: http-request
+method: POST
+url: '{{base_url}}/api/PaymentMethods'
+order: 2000
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "cardholderName": "Test Customer",
+      "cardNumber": "4111111111111111",
+      "brand": "Visa",
+      "expiry": "12/29",
+      "isDefault": true
+    }

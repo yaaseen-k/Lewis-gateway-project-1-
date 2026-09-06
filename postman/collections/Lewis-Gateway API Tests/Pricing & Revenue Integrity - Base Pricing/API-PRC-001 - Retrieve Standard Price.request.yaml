@@ -1,0 +1,50 @@
+$kind: http-request
+url: "{{base_url}}/api/Pricing/validate"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"unitPrice\": 100.00,\r
+
+    \  \"quantity\": 1,\r
+
+    \  \"vatRate\": 0,\r
+
+    \  \"allowZeroValue\": true\r
+
+    }"
+scripts:
+  - type: afterResponse
+    code: "pm.test(\"Status code is 200\", function () {\r
+
+      \    pm.response.to.have.status(200);\r
+
+      });\r
+
+      \r
+
+      pm.test(\"Response body is not empty\", function () {\r
+
+      \    pm.expect(pm.response.text()).to.not.be.empty;\r
+
+      });\r
+
+      \r
+
+      pm.test(\"Response reflects base price with no VAT applied\", function () {\r
+
+      \    const body = pm.response.text();\r
+
+      \    const numbers = body.match(/-?\\d+(\\.\\d+)?/g);\r
+
+      \    pm.expect(numbers, \"expected at least one numeric value in the response\").to.not.be.null;\r
+
+      \    // With vatRate 0, the total should equal the unit price\r
+
+      \    pm.expect(numbers.map(Number)).to.include(100);\r
+
+      });"
+    language: text/javascript
+examples: .resources/API-PRC-001 - Retrieve Standard Price.resources/examples
+order: 1787044121345

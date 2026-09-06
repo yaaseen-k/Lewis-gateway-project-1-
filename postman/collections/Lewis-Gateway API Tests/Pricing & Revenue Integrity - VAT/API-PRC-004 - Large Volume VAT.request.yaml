@@ -1,0 +1,52 @@
+$kind: http-request
+url: "{{base_url}}/api/Pricing/validate"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"unitPrice\": 3999.00,\r
+
+    \  \"quantity\": 1000,\r
+
+    \  \"vatRate\": 0.15,\r
+
+    \  \"allowZeroValue\": false\r
+
+    }"
+scripts:
+  - type: afterResponse
+    code: "pm.test(\"Status code is 200\", function () {\r
+
+      \    pm.response.to.have.status(200);\r
+
+      });\r
+
+      \r
+
+      pm.test(\"Response contains a finite, non-corrupted numeric result\", function () {\r
+
+      \    const body = pm.response.text();\r
+
+      \    const numbers = (body.match(/-?\\d+(\\.\\d+)?/g) || []).map(Number);\r
+
+      \    pm.expect(numbers.length, `expected at least one number in: ${body}`).to.be.above(0);\r
+
+      \    numbers.forEach(function (n) {\r
+
+      \        pm.expect(Number.isFinite(n), `${n} should be finite`).to.be.true;\r
+
+      \    });\r
+
+      });\r
+
+      \r
+
+      pm.test(\"No server error (500) occurs at large volume\", function () {\r
+
+      \    pm.expect(pm.response.code).to.not.eql(500);\r
+
+      });"
+    language: text/javascript
+examples: .resources/API-PRC-004 - Large Volume VAT.resources/examples
+order: 3070798842615339

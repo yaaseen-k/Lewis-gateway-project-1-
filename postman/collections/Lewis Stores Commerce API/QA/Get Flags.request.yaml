@@ -1,0 +1,4 @@
+$kind: http-request
+method: GET
+url: '{{base_url}}/api/Qa/flags'
+order: 1000

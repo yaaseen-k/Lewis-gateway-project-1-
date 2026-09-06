@@ -1,0 +1,4 @@
+$kind: http-request
+method: GET
+url: '{{base_url}}/api/Training/missions/progress'
+order: 1000

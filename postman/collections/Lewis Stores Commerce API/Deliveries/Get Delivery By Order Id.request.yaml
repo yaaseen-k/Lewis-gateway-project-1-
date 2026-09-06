@@ -1,0 +1,7 @@
+$kind: http-request
+method: GET
+url: '{{base_url}}/api/Deliveries/{{order_id}}'
+order: 3000
+pathVariables:
+  - key: order_id
+    value: 'LWS-10001'

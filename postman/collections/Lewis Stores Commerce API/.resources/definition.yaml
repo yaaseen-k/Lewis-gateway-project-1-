@@ -1,0 +1,14 @@
+$kind: collection
+name: 'Lewis Stores Commerce API'
+description: |-
+  Collection generated from the ASP.NET Core controllers in LewisStores.Api.
+
+  Default local base URL is set from launchSettings.json.
+variables:
+  - key: base_url
+    value: 'http://localhost:5000'
+auth:
+  type: bearer
+  credentials:
+    - key: token
+      value: '{{jwt_token}}'

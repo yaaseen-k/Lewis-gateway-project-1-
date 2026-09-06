@@ -1,0 +1,9 @@
+$kind: http-request
+method: GET
+url: '{{base_url}}/api/Deliveries'
+order: 2000
+queryParams:
+  - key: status
+    value: Processing
+  - key: orderId
+    value: 'LWS-10001'
