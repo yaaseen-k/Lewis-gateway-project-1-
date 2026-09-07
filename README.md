@@ -4,6 +4,8 @@
 
 Muhammad Uzair Salaam | Mogamat Yaaseen Karriem
 redAcademy Quality Engineering • Cohort 2027A
+Jira Board Link:
+https://redacademy-team-pl7gdg14.atlassian.net/jira/software/projects/P1/boards/35?filter=&groupBy=none&atlOrigin=eyJpIjoiYWEyNGUyM2Y0ZWY1NGRlZDliMTJkZGJjN2M5YjE0NDIiLCJwIjoiaiJ9
 
 ---
 
