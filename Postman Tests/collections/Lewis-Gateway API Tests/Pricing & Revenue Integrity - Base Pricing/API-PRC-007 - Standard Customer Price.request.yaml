@@ -1,0 +1,58 @@
+$kind: http-request
+url: "{{base_url}}/api/Pricing/validate"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"unitPrice\": 100.00,\r
+
+    \  \"quantity\": 1,\r
+
+    \  \"vatRate\":15,\r
+
+    \  \"allowZeroValue\": false\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{supabase_service_role_api_key_062r}}"
+scripts:
+  - type: afterResponse
+    code: "pm.test(\"Status code is 200\", function () {\r
+
+      \    pm.response.to.have.status(200);\r
+
+      });\r
+
+      \r
+
+      pm.test(\"Response body is not empty\", function () {\r
+
+      \    pm.expect(pm.response.text()).to.not.be.empty;\r
+
+      });\r
+
+      \r
+
+      pm.test(\"Calculated total matches expected VAT-inclusive price\", function () {\r
+
+      \    const body = pm.response.text();\r
+
+      \    const expectedTotal = 115.00; // 100 + 15% VAT\r
+
+      \    const numbers = (body.match(/-?\\d+(\\.\\d+)?/g) || []).map(Number);\r
+
+      \    const found = numbers.some(function (n) {\r
+
+      \        return Math.abs(n - expectedTotal) < 0.01;\r
+
+      \    });\r
+
+      \    pm.expect(found, `expected ${expectedTotal} to appear in response: ${body}`).to.be.true;\r
+
+      });"
+    language: text/javascript
+examples: .resources/API-PRC-007 - Standard Customer Price.resources/examples
+order: 2702502820551269

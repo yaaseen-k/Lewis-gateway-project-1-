@@ -1,0 +1,40 @@
+$kind: http-request
+url: "{{base_url}}/api/Products/{{product_id}}/stock"
+method: PATCH
+examples: .resources/API-STK-006 - Increase Stock.resources/examples
+order: 6000
+headers:
+  Content-Type: application/json
+pathVariables:
+  product_id: atlas-lounge
+body:
+  type: json
+  content: |-
+    {
+      "stockQuantity": 25
+    }
+scripts:
+  - type: afterResponse
+    code: |
+      const response = pm.response.json();
+
+      pm.test("Status code is 200", () => {
+          pm.response.to.have.status(200);
+      });
+
+      pm.test("Response time is below 2 seconds", () => {
+          pm.expect(pm.response.responseTime).to.be.below(2000);
+      });
+
+      pm.test("Returned SKU matches requested SKU", () => {
+          pm.expect(response.sku).to.eql(pm.variables.get("LEW-FUR-0002"));
+      });
+
+      pm.test("Stock quantity increased to 25", () => {
+          pm.expect(response.stockQuantity).to.eql(25);
+      });
+
+      pm.test("Product remains active", () => {
+          pm.expect(response.isActive).to.eql(true);
+      });
+    language: text/javascript

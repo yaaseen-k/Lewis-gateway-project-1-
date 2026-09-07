@@ -1,0 +1,32 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/api/Products/sku/{{sku}}"
+  method: GET
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    content-type: application/json; charset=utf-8
+    date: Sun, 16 Aug 2026 16:11:16 GMT
+    server: Kestrel
+    transfer-encoding: chunked
+  body:
+    type: json
+    content: |-
+      {
+        "id": "air-fryer",
+        "title": "Smart Air Fryer Oven",
+        "description": "IoT-enabled with app control.",
+        "price": 9999,
+        "oldPrice": 11999,
+        "tag": "Best Seller",
+        "rating": 4.6,
+        "category": "Appliances",
+        "categoryId": "cat-2",
+        "categoryEntity": null,
+        "image": "https://images.unsplash.com/photo-1584568694244-14fbbc2bd3a1?auto=format&fit=crop&q=80&w=1200",
+        "sku": "LEW-APP-0002",
+        "stockQuantity": 14,
+        "isActive": true
+      }
+order: 1786973108482

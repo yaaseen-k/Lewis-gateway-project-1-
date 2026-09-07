@@ -1,0 +1,33 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/api/Products/{{productId}}/stock"
+  method: PATCH
+  body:
+    type: json
+    content: "{\r\n  \"stockQuantity\": 4.5\r\n}"
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    content-type: application/problem+json; charset=utf-8
+    date: Mon, 17 Aug 2026 19:32:28 GMT
+    server: Kestrel
+    transfer-encoding: chunked
+  body:
+    type: json
+    content: |-
+      {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+        "title": "One or more validation errors occurred.",
+        "status": 400,
+        "errors": {
+          "request": [
+            "The request field is required."
+          ],
+          "$.stockQuantity": [
+            "The JSON value could not be converted to System.Int32. Path: $.stockQuantity | LineNumber: 1 | BytePositionInLine: 22."
+          ]
+        },
+        "traceId": "00-21b4faad65829dddb028833d2f82f78b-04114bfdcce87328-00"
+      }
+order: 1786995243356

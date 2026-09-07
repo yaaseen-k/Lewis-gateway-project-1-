@@ -1,0 +1,46 @@
+$kind: http-request
+url: " /api/Pricing/validate"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"unitPrice\": 8999.00,\r
+
+    \  \"quantity\": 1,\r
+
+    \  \"vatRate\": 15,\r
+
+    \  \"allowZeroValue\": false\r
+
+    }"
+scripts:
+  - type: afterResponse
+    code: "pm.test(\"Status code is 200\", function () {\r
+
+      \    pm.response.to.have.status(200);\r
+
+      });\r
+
+      \r
+
+      pm.test(\"VAT is correctly applied to a single item\", function () {\r
+
+      \    const body = pm.response.text();\r
+
+      \    const expectedVat = 1349.85;    // 8999 * 15%\r
+
+      \    const expectedTotal = 10348.85; // 8999 + 1349.85\r
+
+      \    const numbers = (body.match(/-?\\d+(\\.\\d+)?/g) || []).map(Number);\r
+
+      \    const hasVat = numbers.some(n => Math.abs(n - expectedVat) < 0.01);\r
+
+      \    const hasTotal = numbers.some(n => Math.abs(n - expectedTotal) < 0.01);\r
+
+      \    pm.expect(hasVat || hasTotal, `expected VAT ${expectedVat} or total ${expectedTotal} in: ${body}`).to.be.true;\r
+
+      });"
+    language: text/javascript
+examples: .resources/API-PRC-002 - Single Item VAT.resources/examples
+order: 1787044264184

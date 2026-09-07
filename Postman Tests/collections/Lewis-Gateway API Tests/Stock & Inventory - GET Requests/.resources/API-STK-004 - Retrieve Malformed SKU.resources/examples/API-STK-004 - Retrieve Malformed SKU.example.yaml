@@ -1,0 +1,22 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/api/Products/sku/{{malformed_sku}}"
+  method: GET
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    content-type: application/problem+json; charset=utf-8
+    date: Mon, 17 Aug 2026 13:32:37 GMT
+    server: Kestrel
+    transfer-encoding: chunked
+  body:
+    type: json
+    content: |-
+      {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.5",
+        "title": "Not Found",
+        "status": 404,
+        "traceId": "00-7c8f28b08a5312903c7626c8588c3d2e-81fbd35c272b2fb6-00"
+      }
+order: 1786973651270

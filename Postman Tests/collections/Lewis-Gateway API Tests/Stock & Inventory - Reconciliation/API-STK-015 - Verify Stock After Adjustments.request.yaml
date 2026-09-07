@@ -1,0 +1,5 @@
+$kind: http-request
+name: API-STK-015 - Verify Stock After Adjustments
+url: "{{baseUrl}}/api/Products/{{productId}}"
+method: GET
+order: 1786995442859

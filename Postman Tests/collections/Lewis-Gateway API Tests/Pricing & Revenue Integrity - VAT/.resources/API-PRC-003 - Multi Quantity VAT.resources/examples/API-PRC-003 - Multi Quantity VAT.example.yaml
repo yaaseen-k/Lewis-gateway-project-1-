@@ -1,0 +1,36 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/api/Pricing/validate"
+  method: POST
+  body:
+    type: json
+    content: "{\r
+
+      \  \"unitPrice\": 5999.00,\r
+
+      \  \"quantity\": 5,\r
+
+      \  \"vatRate\": 0.15,\r
+
+      \  \"allowZeroValue\": false\r
+
+      }"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    content-type: application/json; charset=utf-8
+    date: Thu, 20 Aug 2026 12:41:40 GMT
+    server: Kestrel
+    transfer-encoding: chunked
+  body:
+    type: json
+    content: |-
+      {
+        "subtotal": 29995,
+        "vatRate": 0.15,
+        "vatAmount": 4499.25,
+        "total": 34494.25,
+        "currency": "ZAR"
+      }
+order: 1787229705827

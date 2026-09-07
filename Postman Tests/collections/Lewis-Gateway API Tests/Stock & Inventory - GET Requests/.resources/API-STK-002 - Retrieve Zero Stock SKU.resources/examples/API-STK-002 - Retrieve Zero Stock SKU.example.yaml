@@ -1,0 +1,21 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/api/Products/sku/{{zero_sku}}"
+  method: GET
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    content-type: application/json; charset=utf-8
+    date: Mon, 17 Aug 2026 13:22:15 GMT
+    server: Kestrel
+    transfer-encoding: chunked
+  body:
+    type: json
+    content: |-
+      {
+        "message": "Product with SKU '0' was not found.",
+        "sku": "0",
+        "status": "NotFound"
+      }
+order: 1786972971869
