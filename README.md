@@ -74,6 +74,12 @@ Run directly against `LewisStoresDb` (SQL Server / T-SQL dialect).
 | Business Intelligence Reports | SQL-BI-001 to 010 | 10 | P2 | 8 Pass / 2 N/A |
 | **Total** | | **50** | | **32 Pass / 14 Fail / 4 N/A** |
 
+Each test case in the log is tagged where relevant:
+- `[REVISED]` — rewritten after a discovery finding invalidated the original design
+- `[SUBSTITUTED]` — original intent couldn't be met (e.g. missing audit trail); replaced with the closest feasible check
+- `[N/A - BLOCKED]` — cannot be executed at all; no underlying data exists to test against
+- `[SCHEMA CHECK]` — tests the schema/constraints themselves rather than the data
+
 ### Critical findings
 
 1. **No stock-change audit trail exists.** `AuditLogs.EventType` only contains `auth.*` and `order.*` events — zero product/stock/inventory events. Stock changes via `PATCH /api/Products/{id}/stock` leave no trace anywhere, blocking 8 of the 15 stock-reconciliation cases outright.

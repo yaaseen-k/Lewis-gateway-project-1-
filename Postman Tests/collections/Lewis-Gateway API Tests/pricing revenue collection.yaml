@@ -1,0 +1,150 @@
+{
+  "info": {
+    "_postman_id": "250d4fec-799c-4806-ac21-c7f03c15f1ce",
+    "name": "pricing revenue",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "56952622"
+  },
+  "item": [
+    {
+      "name": "pri 14 - 0 value",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "\r\n  {\r\n  \"total\": 0,\r\n  \"items\": \"mirror-wall\",\r\n  \"itemsList\": [\r\n    {\r\n      \"productId\": \"mirror-wall\",\r\n      \"quantity\": 1,\r\n      \"unitPrice\":0\r\n    }\r\n  ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/Pricing/validate",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "Pricing",
+            "validate"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "pri 15",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "\r\n  {\r\n  \"total\": 0,\r\n  \"items\": \"mirror-wall\",\r\n  \"itemsList\": [\r\n    {\r\n      \"productId\": \"mirror-wall\",\r\n      \"quantity\": 0,\r\n      \"unitPrice\":0\r\n    }\r\n  ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/Pricing/validate",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "Pricing",
+            "validate"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "pri 16",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "\r\n  {\r\n  \"total\": -10000,\r\n  \"items\": \"mirror-wall\",\r\n  \"itemsList\": [\r\n    {\r\n      \"productId\": \"mirror-wall\",\r\n      \"quantity\": 0,\r\n      \"unitPrice\":-10000\r\n    }\r\n  ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/Pricing/validate",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "Pricing",
+            "validate"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "pri 17",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"unitPrice\":0,\r\n  \"quantity\": 1,\r\n  \"vatRate\": 0.15,\r\n  \"allowZeroValue\": true\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/Products/{sku-13476}",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "Products",
+            "{sku-13476}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "pri 18",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"unitPrice\": 0,\r\n  \"quantity\": 2,\r\n  \"vatRate\": 0,\r\n  \"allowZeroValue\": true\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/Pricing/validate",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "Pricing",
+            "validate"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

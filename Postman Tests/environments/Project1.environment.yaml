@@ -1,0 +1,19 @@
+name: Project1
+values:
+  - key: base_url
+    value: ''
+  - key: valid_sku
+    value: ''
+  - key: zero_sku
+    value: ''
+  - key: unknown_sku
+    value: ''
+  - key: malformed_sku
+    value: ''
+  - key: missing_sku
+    value: ''
+  - key: Stock_Adjustment
+    value: ''
+  - key: json_web_token_19sk
+    value: ''
+color: 0

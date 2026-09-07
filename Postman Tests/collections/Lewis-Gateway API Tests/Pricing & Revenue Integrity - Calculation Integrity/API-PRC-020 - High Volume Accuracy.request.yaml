@@ -1,0 +1,94 @@
+$kind: http-request
+url: "{{base_url}}/api/Pricing/validate"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"unitPrice\": 10.10,\r
+
+    \  \"quantity\": 10000,\r
+
+    \  \"vatRate\": 0.15,\r
+
+    \  \"allowZeroValue\": false\r
+
+    }"
+scripts:
+  - type: afterResponse
+    code: "pm.test(\"Status code is 200\", function () {\r
+
+      \    pm.response.to.have.status(200);\r
+
+      });\r
+
+      \r
+
+      pm.test(\"Subtotal is numerically exact at high volume\", function () {\r
+
+      \    const jsonData = pm.response.json();\r
+
+      \    const expectedSubtotal = 10.10 * 10000; // 101000.00\r
+
+      \    pm.expect(jsonData.subtotal).to.be.closeTo(expectedSubtotal, 0.01);\r
+
+      });\r
+
+      \r
+
+      pm.test(\"VAT amount is numerically exact at high volume\", function () {\r
+
+      \    const jsonData = pm.response.json();\r
+
+      \    const expectedVat = 101000.00 * 0.15; // 15150.00\r
+
+      \    pm.expect(jsonData.vatAmount).to.be.closeTo(expectedVat, 0.01);\r
+
+      });\r
+
+      \r
+
+      pm.test(\"Total is numerically exact at high volume\", function () {\r
+
+      \    const jsonData = pm.response.json();\r
+
+      \    const expectedTotal = 101000.00 + 15150.00; // 116150.00\r
+
+      \    pm.expect(jsonData.total).to.be.closeTo(expectedTotal, 0.01);\r
+
+      });\r
+
+      \r
+
+      pm.test(\"No floating point drift beyond acceptable currency precision\", function () {\r
+
+      \    const jsonData = pm.response.json();\r
+
+      \    // Drift check: reconstructing total from subtotal+vatAmount should match\r
+
+      \    // returned total almost exactly, even at scale\r
+
+      \    const reconstructedTotal = jsonData.subtotal + jsonData.vatAmount;\r
+
+      \    pm.expect(jsonData.total).to.be.closeTo(reconstructedTotal, 0.0001);\r
+
+      });\r
+
+      \r
+
+      pm.test(\"All returned values remain finite and well-formed\", function () {\r
+
+      \    const jsonData = pm.response.json();\r
+
+      \    [\"subtotal\", \"vatAmount\", \"total\"].forEach(function (field) {\r
+
+      \        pm.expect(Number.isFinite(jsonData[field]), `${field} should be finite`).to.be.true;\r
+
+      \        pm.expect(jsonData[field]).to.be.above(0);\r
+
+      \    });\r
+
+      });"
+    language: text/javascript
+examples: .resources/API-PRC-020 - High Volume Accuracy.resources/examples
+order: 2087537798810987

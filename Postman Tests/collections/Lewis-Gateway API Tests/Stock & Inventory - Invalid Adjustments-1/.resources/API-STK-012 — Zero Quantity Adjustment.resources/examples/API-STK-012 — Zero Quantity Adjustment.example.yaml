@@ -1,0 +1,35 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/api/Products/{{productId}}/stock"
+  method: PATCH
+  body:
+    type: json
+    content: "{\r\n  \"stockQuantity\": 0\r\n}"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    content-type: application/json; charset=utf-8
+    date: Mon, 17 Aug 2026 19:27:14 GMT
+    server: Kestrel
+    transfer-encoding: chunked
+  body:
+    type: json
+    content: |-
+      {
+        "id": "luxe-pillows",
+        "title": "Luxe Down Pillows (Set of 2)",
+        "description": "Premium Hungarian goose down.",
+        "price": 5999,
+        "oldPrice": null,
+        "tag": null,
+        "rating": 4.4,
+        "category": "Bedding",
+        "categoryId": "cat-5",
+        "categoryEntity": null,
+        "image": "https://images.unsplash.com/photo-1584622181563-430f63602d4b?auto=format&fit=crop&q=80&w=1200",
+        "sku": "LEW-BED-0002",
+        "stockQuantity": 0,
+        "isActive": true
+      }
+order: 1786994927366

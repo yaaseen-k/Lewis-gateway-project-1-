@@ -1,0 +1,13 @@
+$kind: http-request
+name: API-STK-011 — Update Unknown ID
+url: " {{baseUrl}}/api/Products/does-not-exist-id/stock"
+method: PATCH
+body:
+  type: json
+  content: "{\r\n  \"stockQuantity\": 5\r\n}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{json_web_token_062r}}"
+examples: .resources/API-STK-011 — Update Unknown ID.resources/examples
+order: 4042080568636078

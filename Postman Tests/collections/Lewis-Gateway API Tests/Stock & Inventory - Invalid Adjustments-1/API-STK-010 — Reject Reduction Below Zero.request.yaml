@@ -1,0 +1,13 @@
+$kind: http-request
+name: API-STK-010 — Reject Reduction Below Zero
+url: "{{baseUrl}}/api/Products/{{productId}}/stock"
+method: PATCH
+body:
+  type: json
+  content: "{\r
+
+    \  \"stockQuantity\": {{negativeResultQty}}\r
+
+    }"
+examples: .resources/API-STK-010 — Reject Reduction Below Zero.resources/examples
+order: 3292005529111638
