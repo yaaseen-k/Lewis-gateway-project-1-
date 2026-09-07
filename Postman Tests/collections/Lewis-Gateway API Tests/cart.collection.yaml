@@ -1,0 +1,189 @@
+{
+  "info": {
+    "_postman_id": "8f8a3ee4-77ce-4ff1-a857-1510c7df9372",
+    "name": "cart",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "56952622"
+  },
+  "item": [
+    {
+      "name": "cart 1",
+      "request": {
+        "auth": {
+          "type": "bearer"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "   \"body\": {\r\n      \"id\": \"air-fryer\",\r\n      \"title\": \"Smart Air Fryer Oven\",\r\n      \"variant\": \"Standard\",\r\n      \"quantity\": 1,\r\n      \"price\": 9999",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/Cart",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "Cart"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "cart 2",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJ1c2VyLTAwMyIsImVtYWlsIjoibWljaGFlbC5jaGVuQGxld2lzc3RvcmVzLmxvY2FsIiwicm9sZSI6IkN1c3RvbWVyIiwibmJmIjoxNzg4NzM1MjU5LCJleHAiOjE3ODkzNDAwNTksImlhdCI6MTc4ODczNTI1OSwiaXNzIjoiTGV3aXNTdG9yZXNNb2NrSXNzdWVyIiwiYXVkIjoiTGV3aXNTdG9yZXNNb2NrQXVkaWVuY2UifQ.QX2z2VRUrUb1hvGgEPGFlcyoFHQ7ZT-JETxcp5epsuo",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n      \"id\": \"air-fryer\",\r\n      \"title\": \"Smart Air Fryer Oven\",\r\n      \"variant\": \"Standard\",\r\n      \"quantity\": 1,\r\n      \"price\": 9999\r\n    }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/Cart",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "Cart"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "cart 3",
+      "request": {
+        "auth": {
+          "type": "bearer"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": " {\r\n      \"id\": \"air-fryer\",\r\n      \"title\": \"Smart Air Fryer Oven\",\r\n      \"variant\": \"Standard\",\r\n      \"quantity\": -1,\r\n      \"price\": 9999\r\n }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/Cart",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "Cart"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "cart 4",
+      "request": {
+        "auth": {
+          "type": "bearer"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n      \"id\": \"air-fryer\",\r\n      \"title\": \"Smart Air Fryer Oven\",\r\n      \"variant\": \"Standard\",\r\n      \"quantity\": 1,\r\n      \"price\": -9999\r\n    }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/Cart",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "Cart"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "cart 5",
+      "request": {
+        "auth": {
+          "type": "bearer"
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n      \"id\": \"atlas-lounge\",\r\n      \"title\": \"Atlas Lounge Chair\",\r\n      \"variant\": \"Standard\",\r\n      \"quantity\": 1,\r\n      \"price\": 10999\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/Cart",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "Cart"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "cart 6",
+      "request": {
+        "auth": {
+          "type": "bearer"
+        },
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/api/Cart/10",
+          "host": [
+            "{{baseURL}}"
+          ],
+          "path": [
+            "api",
+            "Cart",
+            "10"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
